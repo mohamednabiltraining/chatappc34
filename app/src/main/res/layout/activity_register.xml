@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="vm"
+            type="com.route.chatappc34.ui.register.RegisterViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="12dp"
+        tools:context=".ui.register.RegisterActivity">
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="name"
+            android:text="@={vm.name}"
+            />
+        <TextView
+            android:id="@+id/name_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="please enter name"
+            android:visibility="@{vm.nameError?View.VISIBLE:View.GONE}"
+            android:textColor="@android:color/holo_red_light"
+            />
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="email"
+            android:text="@={vm.email}"
+            />
+        <TextView
+            android:id="@+id/email_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="please enter email"
+            android:visibility="@{vm.emailError?View.VISIBLE:View.GONE}"
+            android:textColor="@android:color/holo_red_light"
+            />
+        <EditText
+            android:id="@+id/user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="user name"
+            android:text="@={vm.userName}"
+
+            />
+        <TextView
+            android:id="@+id/user_name_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="please enter user name"
+            android:visibility="@{vm.userNameError?View.VISIBLE:View.GONE}"
+            android:textColor="@android:color/holo_red_light"
+            />
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="password"
+            android:inputType="textPassword"
+            android:text="@={vm.password}"
+            />
+        <TextView
+            android:id="@+id/password_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{vm.passwordError?View.VISIBLE:View.GONE}"
+            android:text="please enter password"
+            android:textColor="@android:color/holo_red_light"
+            />
+
+        <Button
+            android:id="@+id/register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            android:onClick="@{()->vm.register()}"
+            />
+
+    </LinearLayout>
+</layout>
